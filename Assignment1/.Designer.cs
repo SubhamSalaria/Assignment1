@@ -178,10 +178,10 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(38, 95);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(62, 17);
+            this.radioButton3.Size = new System.Drawing.Size(63, 17);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "español";
+            this.radioButton3.Text = "Español";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
