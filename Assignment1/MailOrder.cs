@@ -73,19 +73,46 @@ namespace Assignment1
                 if (Convert.ToDouble(HoursWorkedTextBox.Text) > 0 && Convert.ToDouble(HoursWorkedTextBox.Text) <= 160)
                 {
 
-                    
+                    this._percentageOfHoursWorked = Convert.ToDouble(HoursWorkedTextBox.Text) / 160;
+                    if (TotalSalesTextBox.Text.Substring(0, 1) == "$")
+                    {
+                        this._totalBonusAmount = Convert.ToDouble(TotalSalesTextBox.Text.Substring(1)) * 0.02;
+                    }
+                    else
+                    {
+                        this._totalBonusAmount = Convert.ToDouble(TotalSalesTextBox.Text) * 0.02;
+                        TotalSalesTextBox.Text = "$" + TotalSalesTextBox.Text;
+                    }
+
+                    this._salesBonus = this._percentageOfHoursWorked * this._totalBonusAmount;
+                    SalesBonusTextBox.Text = this._salesBonus.ToString();
+
                 }
-               
+                else
+                {
+                    MessageBox.Show("Hours Worked: Enter a valu from 0 to 160");
+                    clearAll();
+                }
 
 
             }
             catch (Exception exception)
             {
-                
+                MessageBox.Show("Invalid Data Entered", "Input Error");
+                // Debug.WriteLine(exception.Message);
+                clearAll();
             }
 
         }
-        
+        //clears all fields
+        private void clearAll()
+        {
+            EmployeesNameTextBox.Focus();
+            EmployeesNameTextBox.Text = " ";
+            EmployeeIDTextBox.Text = " ";
+            HoursWorkedTextBox.Text = " ";
+            SalesBonusTextBox.Text = "";
+        }
 
         // Prints the Messsage 
         private void PrintButton_Click()
@@ -93,7 +120,8 @@ namespace Assignment1
             if ((SalesBonusTextBox.Text) != string.Empty)
                 MessageBox.Show("The form is being sent to the printer. Thank you!");
 
-            
+            else
+                MessageBox.Show("Please fill the form");
         }
 
         //When ever buttons are clicked this function will be executed
@@ -104,14 +132,14 @@ namespace Assignment1
             switch (click.Tag.ToString())
             {
                 case "calculate":
-                   
+                    this.CalculateButton_Click();
 
                     break;
                 case "print":
-                   
+                    this.PrintButton_Click();
                     break;
                 case "clear":
-                    
+                    this.clearAll();
                     break;
 
 
