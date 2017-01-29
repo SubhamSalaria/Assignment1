@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//App name : mail order calculation
+//Author's Name  : Subham Salaria (200333595)
+//App Creation Date : January 23,2017
+//App Description : To calculate sales Bonus 
 
 namespace Assignment1
 {
@@ -15,11 +19,17 @@ namespace Assignment1
         private double _percentageOfHoursWorked;
         private double _totalBonusAmount;
         private double _salesBonus;
+        // initialize the constructor
         public Form1()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event Handler for all radio Buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton option = sender as RadioButton;
@@ -63,7 +73,7 @@ namespace Assignment1
 
         }
 
-        //Calculates the Sales Bonus
+        //Calculates the  SalesBonus for each employee
 
         private void CalculateButton_Click()
         {
@@ -90,8 +100,8 @@ namespace Assignment1
                 }
                 else
                 {
-                    MessageBox.Show("Hours Worked: Enter a valu from 0 to 160");
-                    clearAll();
+                    MessageBox.Show("Hours Worked: Enter a value from 0 to 160");
+
                 }
 
 
@@ -99,8 +109,8 @@ namespace Assignment1
             catch (Exception exception)
             {
                 MessageBox.Show("Invalid Data Entered", "Input Error");
-                // Debug.WriteLine(exception.Message);
-                clearAll();
+
+
             }
 
         }
