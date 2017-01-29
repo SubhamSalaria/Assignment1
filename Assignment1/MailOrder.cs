@@ -34,6 +34,8 @@ namespace Assignment1
         {
             RadioButton option = sender as RadioButton;
 
+            //initialize the three different languages English,french and spanish
+
             switch (option.Tag.ToString())
             {
                 case "english":
